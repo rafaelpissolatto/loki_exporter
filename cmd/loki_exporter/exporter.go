@@ -155,7 +155,7 @@ func (e *Exporter) getQueries() error {
 	for _, query := range exporterConfig.Queries {
 		res, err := e.client.QueryRange(
 			query.Query,
-			query.Limit,
+			int(query.Limit),
 			getQueryTime(query.Start),
 			getQueryTime(query.End),
 			getDirection(query.Direction),
